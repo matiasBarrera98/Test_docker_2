@@ -28,7 +28,7 @@ TABLA_PACIENTE = 'inteligencianegocios-367517.melanoma.diagnostico'
 
 def save_image(image):
     file_name = image.name
-    bucket = storage_client.bucket('melanoma_capstone_bucket')
+    bucket = storage_client.bucket('melanoma_capstone')
     blob = bucket.blob(file_name)
     try:
         blob.upload_from_file(file_obj=image, rewind=True)
