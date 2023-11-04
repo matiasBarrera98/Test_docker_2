@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.utils import get_file
 import numpy as np
-from google.oauth2.service_account import Credentials
+# from google.oauth2.service_account import Credentials
 from google.cloud import bigquery
 from google.cloud import storage
 from explain import main_funct
@@ -18,12 +18,12 @@ from helpers import *
 
 # Funcionalidad almacenamiento de los datos
 
-creds = Credentials.from_service_account_info(json.loads(os.getenv('GCP')))
-bq_client = bigquery.Client(credentials=creds)
-storage_client = storage.Client(credentials=creds)
+# creds = Credentials.from_service_account_info(json.loads(os.getenv('GCP')))
+bq_client = bigquery.Client()
+storage_client = storage.Client()
 model_url = "https://storage.googleapis.com/respaldo_api_cne/model_finetune.h5"
 
-TABLA_PACIENTE = 'acquired-winter-316123.capstone.diagnostico'
+TABLA_PACIENTE = 'inteligencianegocios-367517.melanoma.diagnostico'
 
 
 def save_image(image):
